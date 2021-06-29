@@ -1,7 +1,7 @@
 export default function CodeComponent({ code = '' }) {
   return (
     <>
-      <div>{code}!</div>
+      <div>{code}</div>
       <style jsx>{`
         div {
           background-color: #111;

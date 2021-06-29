@@ -6,27 +6,19 @@ import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
 import path from 'path'
-import CustomLink from '../../components/CustomLink'
 import Layout from '../../components/Layout'
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
+import { tilFilePaths, TILS_PATH } from '../../utils/mdxUtils'
 
-// Custom components/renderers to pass to MDX.
-// Since the MDX files aren't loaded by webpack, they have no knowledge of how
-// to handle import statements. Instead, you must include components in scope
-// here.
 const components = {
-  a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
+  a: Link,
   CodeComponent: dynamic(() => import('../../components/CodeComponent')),
   Head,
 }
 
-export default function PostPage({ source, frontMatter }) {
+export default function TilPage({ source, frontMatter }) {
   return (
     <Layout>
-      <div className="post-header">
+      <div className="til-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (
           <p className="description">{frontMatter.description}</p>
@@ -47,11 +39,11 @@ export default function PostPage({ source, frontMatter }) {
       </footer>
 
       <style jsx>{`
-        .post-header h1 {
+        .til-header h1 {
           margin-bottom: 0;
         }
 
-        .post-header {
+        .til-header {
           margin-bottom: 2rem;
         }
         .description {
@@ -63,8 +55,8 @@ export default function PostPage({ source, frontMatter }) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
+  const tilFilePath = path.join(TILS_PATH, `${params.slug}.mdx`)
+  const source = fs.readFileSync(tilFilePath)
 
   const { content, data } = matter(source)
 
@@ -86,7 +78,7 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
+  const paths = tilFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

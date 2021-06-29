@@ -4,24 +4,24 @@ import Link from 'next/link'
 import path from 'path'
 import Layout from '../components/Layout'
 import styles from '../styles/Home.module.css'
-import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils'
+import { tilFilePaths, TILS_PATH } from '../utils/mdxUtils'
 
-export default function Index({ posts }) {
+export default function Index({ tils }) {
   return (
     <div className={styles.container}>
       <Layout>
         <main className={styles.main}>
         <h1 className={styles.title}>TODAY I LEARNED</h1>
-        <ul className={styles.post}>
-          {posts.map((post) => (
-            <li key={post.filePath}>
+        <ul className={styles.til}>
+          {tils.map((til) => (
+            <li key={til.filePath}>
               <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
+                as={`/tils/${til.filePath.replace(/\.mdx?$/, '')}`}
+                href={`/tils/[slug]`}
               >
                 <a className={styles.card}>
-                  <h2>{post.data.title} &rarr;</h2>
-                  <p>{post.data.description}</p>
+                  <h2>{til.data.title} &rarr;</h2>
+                  <p>{til.data.description}</p>
                 </a>
               </Link>
             </li>
@@ -34,8 +34,8 @@ export default function Index({ posts }) {
 }
 
 export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath))
+  const tils = tilFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(TILS_PATH, filePath))
     const { content, data } = matter(source)
 
     return {
@@ -45,5 +45,5 @@ export function getStaticProps() {
     }
   })
 
-  return { props: { posts } }
+  return { props: { tils } }
 }
