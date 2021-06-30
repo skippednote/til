@@ -14,7 +14,12 @@ body {
 
 :root {
   --site-color: #03619c;
+  --orange-color: #ec4b06;
+  --text-dark-color: #212121;
+  --text-light-color: #6d6868;
+  --white-color: #ffffff;
   --divider-color: rgba(0, 0, 0, 0.4);
+  --container-width: 1142px;
 }
 
 html {
@@ -37,5 +42,11 @@ p {
 }
 
 code {
-  font-family: 'Menlo';
+  font-family: "Menlo";
+}
+
+.container {
+  max-width: 1142px;
+  width: 100%;
+  margin: auto;
 }
