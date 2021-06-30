@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Footer from './Footer'
 
 export default function Layout({ children }) {
   return (
@@ -10,6 +11,7 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.wrapper}>{children}</div>
+      <Footer />
     </>
   )
 }
