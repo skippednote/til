@@ -1,13 +1,17 @@
-import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
+import fs from "fs";
+import path from "path";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
-import path from "path";
 import Layout from "../../components/Layout";
-import { tilFilePaths, TILS_PATH } from "../../utils";
+import {
+  tilFilePaths,
+  tilsBasedOnParam,
+  tilsFilteredOnParam,
+  TILS_PATH,
+} from "../../utils";
 
 const components = {
   a: Link,
@@ -15,10 +19,12 @@ const components = {
   Head,
 };
 
-export default function TilPage({ source, frontMatter }) {
+export default function TilPage(props) {
   return (
     <Layout>
-      <div className="til-header">
+      <h1>Hello</h1>
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+      {/* <div className="til-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (
           <p className="description">{frontMatter.description}</p>
@@ -49,40 +55,38 @@ export default function TilPage({ source, frontMatter }) {
         .description {
           opacity: 0.6;
         }
-      `}</style>
+      `}</style> */}
     </Layout>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
-  const tilFilePath = path.join(TILS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(tilFilePath);
-
-  const { content, data } = matter(source);
-
-  const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  });
+  const a = await tilsFilteredOnParam("author", params.slug);
+  const tils = [];
+  for (const tilFilePath of tilFilePaths) {
+    const absPath = path.join(TILS_PATH, tilFilePath);
+    const fileContent = fs.readFileSync(absPath);
+    const { data, content } = matter(fileContent);
+    const mdxSource = await serialize(content, { scope: data });
+    const til = {
+      data,
+      content: mdxSource,
+    };
+    if (data.author === params.slug) {
+      tils.push(til);
+    }
+  }
 
   return {
     props: {
-      source: mdxSource,
-      frontMatter: data,
+      author: params.slug,
+      tils,
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  const paths = tilFilePaths
-    // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ""))
-    // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }));
+  const paths = tilsBasedOnParam("author");
 
   return {
     paths,
