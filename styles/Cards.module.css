@@ -1,0 +1,131 @@
+.date {
+  display: flex;
+  align-items: flex-start;
+  margin: auto 52px auto 0;
+}
+
+.cardDate {
+  font-size: 32px;
+  font-weight: 600;
+  font-family: var(--f-secondary);
+  color: var(--text-dark-color);
+  margin-right: 16px;
+}
+
+.cardMonthYear {
+  font-size: 14px;
+  font-family: var(--f-primary);
+  color: var(--text-dark-color);
+  margin-top: 15px;
+}
+
+.cardCategory {
+  text-decoration: none;
+  color: var(--site-color);
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: var(--f-secondary);
+}
+
+.cardCategory:hover {
+  text-decoration: underline;
+  color: var(--text-light-color);
+}
+
+.cardTitle {
+  text-decoration: none;
+  display: block;
+  font-family: var(--f-primary);
+  margin-bottom: 5px;
+}
+
+.cardTitle:hover {
+  text-decoration: underline;
+}
+
+.cardDescription {
+  margin-bottom: 0;
+  font-family: var(--f-primary);
+}
+
+.cardContent {
+  max-width: 700px;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--white-color);
+  padding: 24px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  border: 1px solid var(--orange-color);
+  transform: scale(1.01);
+  transition: all 0.25s ease;
+  background-color: var(--hover-grey-color);
+}
+
+.cardHeading {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.cardTags {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardAuthor {
+  text-decoration: none;
+  color: var(--orange-color);
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--f-secondary);
+}
+
+.cardAuthor:hover {
+  text-decoration: underline;
+  color: var(--text-light-color);
+}
+
+@media (max-width: 767px) {
+  .cardDescription {
+    margin-bottom: 20px;
+  }
+
+  .cardTitle {
+    margin-right: 80px;
+    max-width: 390px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 14px;
+  }
+
+  .card:hover {
+    cursor: pointer;
+  }
+
+  .date {
+    margin-right: 50px;
+  }
+
+  .cardDate {
+    margin-bottom: 0;
+  }
+
+  .cardTags {
+    margin-left: 50px;
+  }
+}

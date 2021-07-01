@@ -46,7 +46,7 @@
 .footerLinks {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  padding: 0 20px;
+  padding: 40px 0;
 }
 
 .footerSecondary {
@@ -58,6 +58,10 @@
 
 .footerSecondary p {
   margin-bottom: 0;
+}
+
+.footer {
+  background-color: var(--white-color);
 }
 
 @media (max-width: 767px) {
@@ -75,5 +79,9 @@
 @media screen and (min-width: 767px) {
   .footerLogo {
     margin-top: -25px;
+  }
+
+  .menu {
+    margin-bottom: 0;
   }
 }
