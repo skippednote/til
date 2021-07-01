@@ -30,14 +30,9 @@
 }
 
 .title {
-  margin: 0 0 1rem;
+  margin: 0 0 25px;
   line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
+  font-size: 32px;
 }
 
 .description {
