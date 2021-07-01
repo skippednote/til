@@ -5,8 +5,8 @@ import { FiLinkedin, FiTwitter, FiFacebook } from 'react-icons/fi';
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="container">
+    <footer className={footerStyles.footer}>
+      <div className="main-container">
         <div className={footerStyles.footerLinks}>
           <Menu
             title="Quick Links"
