@@ -1,9 +1,9 @@
 export const formatDate = (input) => {
-    const date = new Date(Date.parse(input));
-    let month = date.toLocaleString('default', { month: 'short' });
-    return {
+  const date = new Date(Date.parse(input));
+
+  return {
     day: date.getDate(),
-    month: month,
+    month: date.toLocaleString('default', { month: 'short' }),
     year: date.getFullYear(),
   };
 };
