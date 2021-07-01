@@ -1,10 +1,10 @@
-import fs from "fs";
-import matter from "gray-matter";
-import Link from "next/link";
-import path from "path";
-import Layout from "../components/Layout";
-import styles from "../styles/Home.module.css";
-import { tilFilePaths, TILS_PATH } from "../utils";
+import fs from 'fs';
+import matter from 'gray-matter';
+import Link from 'next/link';
+import path from 'path';
+import Layout from '../components/Layout';
+import styles from '../styles/Home.module.css';
+import { tilFilePaths, TILS_PATH } from '../utils';
 
 export default function Index({ tils }) {
   return (
@@ -16,7 +16,7 @@ export default function Index({ tils }) {
             {tils.map((til) => (
               <li key={til.filePath}>
                 <Link
-                  as={`/tils/${til.filePath.replace(/\.mdx?$/, "")}`}
+                  as={`/tils/${til.filePath.replace(/\.mdx?$/, '')}`}
                   href={`/tils/[slug]`}
                 >
                   <a className={styles.card}>

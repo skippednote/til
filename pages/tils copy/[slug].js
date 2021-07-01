@@ -1,17 +1,17 @@
-import fs from "fs";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import Link from "next/link";
-import path from "path";
-import Layout from "../../components/Layout";
-import { tilFilePaths, TILS_PATH } from "../../utils";
+import fs from 'fs';
+import matter from 'gray-matter';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Link from 'next/link';
+import path from 'path';
+import Layout from '../../components/Layout';
+import { tilFilePaths, TILS_PATH } from '../../utils';
 
 const components = {
   a: Link,
-  CodeComponent: dynamic(() => import("../../components/CodeComponent")),
+  CodeComponent: dynamic(() => import('../../components/CodeComponent')),
   Head,
 };
 
@@ -80,7 +80,7 @@ export const getStaticProps = async ({ params }) => {
 export const getStaticPaths = async () => {
   const paths = tilFilePaths
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
 

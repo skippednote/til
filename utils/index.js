@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
 
-export const TILS_PATH = path.join(process.cwd(), "tils");
+export const TILS_PATH = path.join(process.cwd(), 'tils');
 
 export const tilFilePaths = fs
   .readdirSync(TILS_PATH)

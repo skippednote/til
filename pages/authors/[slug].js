@@ -1,21 +1,21 @@
-import matter from "gray-matter";
-import fs from "fs";
-import path from "path";
-import { serialize } from "next-mdx-remote/serialize";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import Link from "next/link";
-import Layout from "../../components/Layout";
+import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
+import { serialize } from 'next-mdx-remote/serialize';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Link from 'next/link';
+import Layout from '../../components/Layout';
 import {
   tilFilePaths,
   tilsBasedOnParam,
   tilsFilteredOnParam,
   TILS_PATH,
-} from "../../utils";
+} from '../../utils';
 
 const components = {
   a: Link,
-  CodeComponent: dynamic(() => import("../../components/CodeComponent")),
+  CodeComponent: dynamic(() => import('../../components/CodeComponent')),
   Head,
 };
 
@@ -61,7 +61,7 @@ export default function TilPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const a = await tilsFilteredOnParam("author", params.slug);
+  const a = await tilsFilteredOnParam('author', params.slug);
   const tils = [];
   for (const tilFilePath of tilFilePaths) {
     const absPath = path.join(TILS_PATH, tilFilePath);
@@ -86,7 +86,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = tilsBasedOnParam("author");
+  const paths = tilsBasedOnParam('author');
 
   return {
     paths,
