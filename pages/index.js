@@ -28,6 +28,7 @@ export default function Index({ tils }) {
 
 export function getStaticProps() {
   const tils = tilFilePaths.map((filePath) => {
+    console.log(filePath);
     const source = fs.readFileSync(path.join(TILS_PATH, filePath));
     const { content, data } = matter(source);
 
