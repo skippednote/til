@@ -21,14 +21,14 @@ const Card = ({ filepath, data, key }) => {
     </div>
     <div className={cardStyles.cardTags}>
       <Link
-        as={`/tils/${filepath.replace(/\.mdx?$/, "")}`}
-        href={`/tils/[slug]`}
+        as={`/categories/${data.category}`}
+        href={`/categories/[slug]`}
       >
         <a className={cardStyles.cardCategory}>{category}</a>
       </Link>
       <Link
-        as={`/tils/${filepath.replace(/\.mdx?$/, "")}`}
-        href={`/tils/[slug]`}
+        as={`/authors/${data.author}`}
+        href={`/authors/[slug]`}
       >
         <a className={cardStyles.cardAuthor}>{author}</a>
       </Link>

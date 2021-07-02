@@ -7,6 +7,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
 import Layout from '../../components/Layout';
+import detailsStyles from '../../styles/Details.module.css'
 import { tilFilePaths, TILS_PATH } from '../../utils';
 
 const components = {
@@ -17,46 +18,41 @@ const components = {
 
 export default function TilPage({ source, frontMatter }) {
   return (
-    <Layout>
-      <div className="til-header">
-        <h1>{frontMatter.title}</h1>
-        {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
-        )}
-      </div>
-      <main>
-        <MDXRemote {...source} components={components} />
-        {frontMatter.author && (
-          <Link
-            href={`/authors/${frontMatter.author}`}
-          >
-          <a className="description">
-            Author: {frontMatter.author}
-          </a>
-        </Link>
-        )}
-      </main>
-      <footer>
-        <nav>
-          <Link href="/">
-            <a>Back to home</a>
-          </Link>
-        </nav>
-      </footer>
-
-      <style jsx>{`
-        .til-header h1 {
-          margin-bottom: 0;
-        }
-
-        .til-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
-    </Layout>
+    <div className='container'>
+      <Layout>
+        <div className='main-container'>
+          <main className={detailsStyles.tilContainer} >
+            <div className={detailsStyles.tilHeader}>
+              <h1>{frontMatter.title}</h1>
+              {frontMatter.description && (
+                <p className="description">{frontMatter.description}</p>
+              )}
+            </div>
+            <MDXRemote {...source} components={components} />
+            <nav>
+              <Link href="/">
+                <a className={detailsStyles.tilBackToHome}>Back to home</a>
+              </Link>
+            </nav>
+          </main>
+          <div className={detailsStyles.tilBottomContent}>
+            {frontMatter.author && (
+              <Link
+                as={`/authors/${frontMatter.author}`}
+                href={`/authors/[slug]`}><a className={detailsStyles.contentBottomItem}>{frontMatter.author}</a></Link>
+            )}
+            {frontMatter.category && (
+              <Link
+                as={`/categories/${frontMatter.category}`}
+                href={`/categories/[slug]`}><a className={detailsStyles.contentBottomItem}>{frontMatter.category}</a></Link>
+            )}
+            {frontMatter.date && (
+              <p className={detailsStyles.contentBottomItem}>{frontMatter.date}</p>
+            )}
+          </div>  
+        </div>
+      </Layout>
+    </div>
   );
 }
 
@@ -79,6 +75,7 @@ export const getStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
+      
     },
   };
 };
