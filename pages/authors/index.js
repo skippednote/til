@@ -27,13 +27,15 @@ export default function Index({ authors }) {
     </div>
   );
 }
+
 export function getStaticProps() {
-  const authors = tilFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(TILS_PATH, filePath));
-    const {
-      data: { author },
-    } = matter(source);
-    return author;
-  });
-  return { props: { authors } };
+  const authorsInTils = tilFilePaths.map((filePath) => {
+    const source = fs.readFileSync(path.join(TILS_PATH, filePath))
+    const { data: { author } } = matter(source)
+
+    return  author;
+  })
+
+  let authors  = [...new Set(authorsInTils)]
+  return { props: { authors } }
 }

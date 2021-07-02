@@ -27,7 +27,13 @@ export default function TilPage({ source, frontMatter }) {
       <main>
         <MDXRemote {...source} components={components} />
         {frontMatter.author && (
-          <p className="description">Author: {frontMatter.author}</p>
+          <Link
+            href={`/authors/${frontMatter.author}`}
+          >
+          <a className="description">
+            Author: {frontMatter.author}
+          </a>
+        </Link>
         )}
       </main>
       <footer>
