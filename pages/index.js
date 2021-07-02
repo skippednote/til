@@ -13,7 +13,7 @@ export default function Index({ tils }) {
       <Layout>
         <main className={styles.main}>
           <div className='main-container'>
-            <h1 className={styles.title}>TODAY I LEARNED</h1>
+            <h1 className={styles.title}>Recent TILs</h1>
             <ul className='list'>
               {tils.map((til) => (
                 <Card key={til.filePath} filepath={til.filePath} data={til.data} />

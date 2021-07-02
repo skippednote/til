@@ -11,26 +11,26 @@ const Footer = () => {
           <Menu
             title="Quick Links"
             links={[
-              { link: '/careers', text: 'Careers' },
-              { link: '/careers', text: 'Plugin Store' },
-              { link: '/careers', text: 'Contrib Tracker' },
+              { link: 'https://www.axelerant.com/careers', text: 'Careers' },
+              { link: 'https://store.axelerant.com/', text: 'Plugin Store' },
+              { link: 'https://ks.axelerant.com/', text: 'Knowledge Sharing' },
             ]}
           />
           <Menu
             title="Blog"
             links={[
-              { link: '/careers', text: 'Articles' },
-              { link: '/careers', text: 'Team Blog' },
-              { link: '/careers', text: 'Case Studies' },
+              { link: 'https://www.axelerant.com/resources/articles', text: 'Articles' },
+              { link: 'https://www.axelerant.com/resources/team-blog', text: 'Team Blog' },
+              { link: 'https://www.axelerant.com/success-stories', text: 'Case Studies' },
             ]}
           />
           <div className={footerStyles.socialLinks}>
             <Menu
               title="Social Sharing"
               links={[
-                { link: '/a', text: <FiFacebook /> },
-                { link: '/a', text: <FiTwitter /> },
-                { link: '/a', text: <FiLinkedin /> },
+                { link: 'https://www.facebook.com/axelerant', text: <FiFacebook /> },
+                { link: 'https://twitter.com/axelerant', text: <FiTwitter /> },
+                { link: 'https://www.linkedin.com/company/axelerant/', text: <FiLinkedin /> },
               ]}
             />
           </div>
