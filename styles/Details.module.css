@@ -1,0 +1,65 @@
+.tilHeader h1 {
+  margin-bottom: 0;
+}
+
+.tilHeader {
+  margin-bottom: 2rem;
+}
+.description {
+  opacity: 0.6;
+}
+
+.tilContainer {
+  padding: 24px;
+  margin: 100px 0 15px;
+  border-radius: 4px;
+  background-color: var(--white-color);
+}
+
+.tilBackToHome {
+  font-weight: 600;
+}
+
+.tilBottomContent {
+  margin-bottom: 100px;
+}
+
+.contentBottomItem {
+  display: block;
+  background-color: var(--white-color);
+  border-radius: 4px;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-family: var(--f-secondary-light);
+  font-size: 16px;
+}
+
+.contentBottomItem:hover {
+  background-color: var(--hover-grey-color);
+  border: 1px solid var(--site-color);
+  text-decoration: underline;
+  transform: scale(1.025);
+  transition: all 0.25s linear;
+}
+
+@media screen and (min-width: 767px) {
+  .tilBottomContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .contentBottomItem {
+    margin-bottom: 0;
+    width: calc(100%/3);
+  }
+
+  .contentBottomItem:not(:last-child) {
+    margin-right: 10px;
+}
+  
+}

@@ -7,22 +7,22 @@ import styles from '../../styles/Home.module.css';
 import { tilFilePaths, TILS_PATH } from '../../utils';
 export default function Index({ authors }) {
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Layout>
-        <main className={styles.main}>
-          <h1 className={styles.title}>Authors</h1>
-          <ul className={styles.til}>
-            {authors.map((author) => (
-              <li key={author}>
-                <Link href={`/authors/${author}`}>
-                  <a className={styles.card}>
-                    <p>{author}</p>
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </main>
+          <main className={styles.main}>
+            <h1 className={styles.title}>Authors</h1>
+            <ul className={styles.til}>
+              {authors.map((author) => (
+                <li key={author}>
+                  <Link href={`/authors/${author}`}>
+                    <a className={styles.card}>
+                      <p>{author}</p>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </main> 
       </Layout>
     </div>
   );

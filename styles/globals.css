@@ -8,6 +8,11 @@
   src: url(../fonts/Montserrat-SemiBold.ttf);
 }
 
+@font-face {
+  font-family: "Montserrat-light";
+  src: url(../fonts/Montserrat-Light.ttf);
+}
+
 html,
 body {
   padding: 0;
@@ -37,6 +42,7 @@ body {
 
   --f-primary: "Roboto", sans-serif;
   --f-secondary: "Montserrat", sans-serif;
+  --f-secondary-light: "Montserrat-light", sans-serif;
 }
 
 html {
@@ -77,4 +83,8 @@ code {
 
 .list {
   list-style: none;
+}
+
+.bg-white {
+  background-color: var(--white-color);
 }

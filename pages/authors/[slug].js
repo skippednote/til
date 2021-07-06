@@ -6,7 +6,8 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import styles from "../../styles/Home.module.css";
+import Card from '../../components/Card'
+import homeStyles from '../../styles/Home.module.css'
 import {
   tilFilePaths,
   tilsBasedOnParam,
@@ -22,23 +23,20 @@ const components = {
 
 export default function TilPage(props) {
   return (
-    <Layout>
-      <ul className={styles.til}>
-        {props.tils.map((til) => (
-          <li key={til.data.title}>
-            <Link
-              as={`/tils/${/[^/]*$/.exec(til.absPath.replace(/\.mdx?$/, ""))[0]}`}
-              href={`/tils/[slug]`}
-            >
-              <a className={styles.card}>
-                <h2>{til.data.title} &rarr;</h2>
-                <p>{til.data.description}</p>
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </Layout>
+    <div className='container'>
+      <Layout>
+        <div className='main-container'>
+          <main className={homeStyles.main}>
+            <h2 className={homeStyles.title}>{ props.author}</h2>
+            <ul>
+              {props.tils.map((til) => (
+                <Card key={til.filePath} filepath={`${/[^/]*$/.exec(til.absPath.replace(/\.mdx?$/, ""))[0]}`} data={til.data} />
+              ))}
+            </ul>
+          </main>  
+        </div>  
+      </Layout>
+    </div>  
   );
 }
 
