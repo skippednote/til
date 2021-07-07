@@ -57,23 +57,21 @@
 
 .card {
   background-color: var(--white-color);
-  padding: 24px 12px;
+  padding: 1rem;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 1px 1px rgb(0 0 0 / 15%);
-  border: 1px solid transparent;
+  border: 1px solid var(--white-color);
 }
 
 .card:hover {
-  border: 1px solid var(--orange-color);
-  transform: scale(1.01);
   transition: all 0.25s ease;
   background-color: var(--hover-grey-color);
 }
 
 .cardHeading {
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .cardTags {
@@ -110,7 +108,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 28px 14px;
+    padding: 1rem;
   }
 
   .card:hover {

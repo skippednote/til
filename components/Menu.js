@@ -3,7 +3,7 @@ import footerStyles from '../styles/Footer.module.css';
 export default function Menu({ title, links }) {
   return (
     <div className={footerStyles.menu}>
-      <p className={footerStyles.menuTitle}>{title}</p>
+      <h2 className={footerStyles.menuTitle}>{title}</h2>
       <ul className={footerStyles.menuLinkList}>
         {links.map(({ link, text }) => (
           <li key={text} className={footerStyles.menuLinkItem}>

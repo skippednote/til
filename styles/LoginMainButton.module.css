@@ -1,0 +1,29 @@
+.loginMainButton {
+  padding: 9px 18px;
+  display: flex;
+  align-items: center;
+  max-height: 35px;
+  font-size: 14px;
+  border: 1px solid var(--orange-color);
+  border-radius: 26px;
+  color: var(--white-color);
+  fill: var(--white-color);
+  text-decoration: none;
+  background: var(--orange-color);
+}
+
+.loginMainButton:hover {
+  background: var(--orange-color);
+  color: var(--white-color);
+}
+
+.loginMainButton svg {
+  height: 15px;
+  width: 15px;
+  fill: var(--white-color);
+  margin-right: 0.5rem;
+}
+
+.loginMainButton:hover > svg {
+  fill: var(--white-color);
+}

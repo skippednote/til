@@ -1,0 +1,47 @@
+.headerWrapper {
+  background-color: var(--white-color);
+  font-family: Montserrat, sans-serif;
+}
+
+.headerMain {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+}
+
+.headerMain nav {
+  padding-top: 5px;
+  margin-left: 15rem;
+}
+
+.headerLogo a.headerIcon {
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  height: 45px;
+}
+
+.headerLogo span {
+  color: var(--orange-color);
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.headerNav {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding-left: 0;
+  margin: 0;
+}
+
+.headerNav li {
+  margin-right: 20px;
+}
+
+.menu {
+  padding: 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
