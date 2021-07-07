@@ -1,0 +1,27 @@
+.loginGoogleButton {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  max-height: 35px;
+  font-size: 14px;
+  border: 1px solid var(--orange-color);
+  border-radius: 26px;
+  color: var(--orange-color);
+  text-decoration: none;
+  margin-left: 40px;
+  box-sizing: border-box;
+}
+
+.loginGoogleButton:hover {
+  background: var(--orange-color);
+  color: var(--white-color);
+}
+
+.loginGoogleButton svg {
+  height: 20px;
+  fill: var(--orange-color);
+}
+
+.loginGoogleButton:hover > svg {
+  fill: var(--white-color);
+}

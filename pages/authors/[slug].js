@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 import Layout from '../../components/Layout';
-import Card from '../../components/Card'
-import homeStyles from '../../styles/Home.module.css'
+import Card from '../../components/Card';
+import homeStyles from '../../styles/Home.module.css';
 import {
   tilFilePaths,
   tilsBasedOnParam,
@@ -23,20 +23,26 @@ const components = {
 
 export default function TilPage(props) {
   return (
-    <div className='container'>
+    <div className="container">
       <Layout>
-        <div className='main-container'>
+        <div className="main-container">
           <main className={homeStyles.main}>
-            <h2 className={homeStyles.title}>{ props.author}</h2>
+            <h2 className={homeStyles.title}>{props.author}</h2>
             <ul>
               {props.tils.map((til) => (
-                <Card key={til.filePath} filepath={`${/[^/]*$/.exec(til.absPath.replace(/\.mdx?$/, ""))[0]}`} data={til.data} />
+                <Card
+                  key={til.filePath}
+                  filepath={`${
+                    /[^/]*$/.exec(til.absPath.replace(/\.mdx?$/, ''))[0]
+                  }`}
+                  data={til.data}
+                />
               ))}
             </ul>
-          </main>  
-        </div>  
+          </main>
+        </div>
       </Layout>
-    </div>  
+    </div>
   );
 }
 
@@ -56,7 +62,6 @@ export const getStaticProps = async ({ params }) => {
     if (data.author === params.slug) {
       tils.push(til);
     }
-
   }
 
   return {

@@ -1,22 +1,26 @@
-import fs from "fs";
-import matter from "gray-matter";
-import Link from "next/link";
-import path from "path";
-import Layout from "../components/Layout";
-import Card from '../components/Card'
-import styles from "../styles/Home.module.css";
-import { tilFilePaths, TILS_PATH } from "../utils";
+import fs from 'fs';
+import matter from 'gray-matter';
+import Link from 'next/link';
+import path from 'path';
+import Layout from '../components/Layout';
+import Card from '../components/Card';
+import styles from '../styles/Home.module.css';
+import { tilFilePaths, TILS_PATH } from '../utils';
 
 export default function Index({ tils }) {
   return (
-    <div className='container'>
+    <div className="container">
       <Layout>
         <main className={styles.main}>
-          <div className='main-container'>
-            <h2 className={styles.title}>Recent TILs</h2>
-            <ul className='list'>
+          <div className="main-container">
+            <h2 className={styles.title}>Recent TIL</h2>
+            <ul className="list">
               {tils.map((til) => (
-                <Card key={til.filePath} filepath={til.filePath} data={til.data} />
+                <Card
+                  key={til.filePath}
+                  filepath={til.filePath}
+                  data={til.data}
+                />
               ))}
             </ul>
           </div>
@@ -28,7 +32,6 @@ export default function Index({ tils }) {
 
 export function getStaticProps() {
   const tils = tilFilePaths.map((filePath) => {
-    console.log(filePath);
     const source = fs.readFileSync(path.join(TILS_PATH, filePath));
     const { content, data } = matter(source);
 
@@ -37,7 +40,7 @@ export function getStaticProps() {
       data,
       filePath,
     };
-  });
+  }); //axelerant.slack.com/archives/D01LQQQ2DJM/p1625635918002600
 
-  return { props: { tils } };
+  https: return { props: { tils } };
 }

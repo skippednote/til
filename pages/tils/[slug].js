@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
 import Layout from '../../components/Layout';
-import detailsStyles from '../../styles/Details.module.css'
+import detailsStyles from '../../styles/Details.module.css';
 import { tilFilePaths, TILS_PATH } from '../../utils';
 
 const components = {
@@ -18,10 +18,10 @@ const components = {
 
 export default function TilPage({ source, frontMatter }) {
   return (
-    <div className='container'>
+    <div className="container">
       <Layout>
-        <div className='main-container'>
-          <main className={detailsStyles.tilContainer} >
+        <div className="main-container">
+          <main className={detailsStyles.tilContainer}>
             <div className={detailsStyles.tilHeader}>
               <h1>{frontMatter.title}</h1>
               {frontMatter.description && (
@@ -39,17 +39,29 @@ export default function TilPage({ source, frontMatter }) {
             {frontMatter.author && (
               <Link
                 as={`/authors/${frontMatter.author}`}
-                href={`/authors/[slug]`}><a className={detailsStyles.contentBottomItem}>{frontMatter.author}</a></Link>
+                href={`/authors/[slug]`}
+              >
+                <a className={detailsStyles.contentBottomItem}>
+                  {frontMatter.author}
+                </a>
+              </Link>
             )}
             {frontMatter.category && (
               <Link
                 as={`/categories/${frontMatter.category}`}
-                href={`/categories/[slug]`}><a className={detailsStyles.contentBottomItem}>{frontMatter.category}</a></Link>
+                href={`/categories/[slug]`}
+              >
+                <a className={detailsStyles.contentBottomItem}>
+                  {frontMatter.category}
+                </a>
+              </Link>
             )}
             {frontMatter.date && (
-              <p className={detailsStyles.contentBottomItem}>{frontMatter.date}</p>
+              <p className={detailsStyles.contentBottomItem}>
+                {frontMatter.date}
+              </p>
             )}
-          </div>  
+          </div>
         </div>
       </Layout>
     </div>
@@ -75,7 +87,6 @@ export const getStaticProps = async ({ params }) => {
     props: {
       source: mdxSource,
       frontMatter: data,
-      
     },
   };
 };
