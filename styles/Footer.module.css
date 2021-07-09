@@ -81,7 +81,10 @@
 
 @media screen and (min-width: 767px) {
   .footerLogo {
+    justify-self: end;
+    align-self: baseline;
     margin-top: -25px;
+    margin-right: -12px;
   }
 
   .menu {
