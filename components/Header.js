@@ -1,8 +1,10 @@
 import styles from './../styles/Header.module.css';
 import Link from 'next/link';
 import SiteLogo from './icons/SiteLogo.js';
+import HamburgerIcon from './icons/HamburgerIcon';
+import NavbarMain from './NavbarMain';
 
-const Header = () => {
+const Header = ({ handleSidebar }) => {
   return (
     <header className={`${styles.headerWrapper}`}>
       <main className={`${styles.headerMain} main-container`}>
@@ -14,27 +16,17 @@ const Header = () => {
             </a>
           </Link>
         </div>
-        <nav>
-          <ul className={styles.headerNav}>
-            <li>
-              <Link href="/">
-                <a className={styles.menu}>Home</a>
-              </Link>
-            </li>
 
-            <li>
-              <Link href="/authors">
-                <a className={styles.menu}>Authors</a>
-              </Link>
-            </li>
+        <div className={styles.hamburgerIcon} onClick={handleSidebar}>
+          <HamburgerIcon
+            iconHeight={'18px'}
+            iconWidth={'16px'}
+            rectHeight={'10px'}
+            fillColor={'#FC4C02'}
+          />
+        </div>
 
-            <li>
-              <Link href="/categories">
-                <a className={styles.menu}>Categories</a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <NavbarMain />
       </main>
     </header>
   );
