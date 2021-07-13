@@ -13,7 +13,7 @@ export default function Index({ authors }) {
           <h1 className={styles.title}>Authors</h1>
           <ul className={styles.til}>
             {authors.map((author) => (
-              <li key={author}>
+              <li key={author} className={styles.listingCard}>
                 <Link href={`/authors/${author}`}>
                   <a className={styles.card}>
                     <p>{author}</p>

@@ -14,7 +14,7 @@ export default function Index({ categories }) {
           <h1 className={styles.title}>Categories</h1>
           <ul className={styles.til}>
             {categories.map((category) => (
-              <li key={category}>
+              <li key={category} className={styles.listingCard}>
                 <Link href={`/categories/${category}`}>
                   <a className={styles.card}>
                     <p>{category}</p>

@@ -42,5 +42,5 @@ export function getStaticProps() {
     };
   }); //axelerant.slack.com/archives/D01LQQQ2DJM/p1625635918002600
 
-  https: return { props: { tils } };
+  return { props: { tils } };
 }

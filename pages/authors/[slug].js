@@ -8,12 +8,7 @@ import Link from 'next/link';
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import homeStyles from '../../styles/Home.module.css';
-import {
-  tilFilePaths,
-  tilsBasedOnParam,
-  tilsFilteredOnParam,
-  TILS_PATH,
-} from '../../utils';
+import { tilFilePaths, tilsBasedOnParam, TILS_PATH } from '../../utils';
 
 const components = {
   a: Link,
@@ -47,7 +42,6 @@ export default function TilPage(props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const a = await tilsFilteredOnParam('author', params.slug);
   const tils = [];
   for (const tilFilePath of tilFilePaths) {
     const absPath = path.join(TILS_PATH, tilFilePath);

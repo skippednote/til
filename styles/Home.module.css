@@ -102,3 +102,7 @@
 .wrapper {
   margin: 0 auto;
 }
+
+.listingCard a {
+  text-decoration: none;
+}
