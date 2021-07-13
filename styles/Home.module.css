@@ -3,7 +3,11 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 5rem 20px;
+}
+
+.main-container {
+  padding: 0 !important;
 }
 
 .footer {

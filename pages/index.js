@@ -11,8 +11,8 @@ export default function Index({ tils }) {
   return (
     <div className="container">
       <Layout>
-        <main className={styles.main}>
-          <div className="main-container">
+        <main className={`${styles.main} main-container`}>
+          <div>
             <h2 className={styles.title}>Recent TIL</h2>
             <ul className="list">
               {tils.map((til) => (

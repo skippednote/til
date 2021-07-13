@@ -1,6 +1,7 @@
 .headerWrapper {
   background-color: var(--white-color);
   font-family: Montserrat, sans-serif;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
 }
 
 .headerMain {
@@ -44,4 +45,28 @@
   padding: 15px;
   text-decoration: none;
   font-size: 14px;
+}
+
+.hamburgerIcon {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .headerWrapper {
+    position: fixed;
+    width: 100vw;
+  }
+
+  .hamburgerIcon {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .headerMain {
+    justify-content: space-between;
+  }
+
+  .headerMain nav {
+    display: none;
+  }
 }

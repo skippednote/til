@@ -1,7 +1,7 @@
 import Menu from '../components/Menu';
-import Image from 'next/image';
 import footerStyles from '../styles/Footer.module.css';
 import { FiLinkedin, FiTwitter, FiFacebook } from 'react-icons/fi';
+import SiteLogo from './icons/SiteLogo';
 
 const Footer = () => {
   return (
@@ -49,14 +49,13 @@ const Footer = () => {
               ]}
             />
           </div>
-          <div className={footerStyles.footerLogo}>
-            <Image
-              src="/svg/axl-logo.svg"
-              alt="Axelerant Logo"
-              width={134}
-              height={100}
-              className={footerStyles.footerLogo}
-            ></Image>
+          <div className={footerStyles.footerLogoWrapper}>
+            <div className={footerStyles.footerLogo}>
+              <SiteLogo />{' '}
+              <span className={footerStyles.text}>
+                a<span className={footerStyles.letterX}>x</span>elerant
+              </span>
+            </div>
           </div>
         </div>
       </div>
