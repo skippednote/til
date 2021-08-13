@@ -1,0 +1,112 @@
+---
+title: Installing Drupal Modules the Right Way
+description: A quick guide on how to install Drupal Modules
+author: Sidharth Subramanian
+date: '2021-08-13'
+category: Drupal
+---
+
+## What are Drupal Modules?
+
+Drupal Modules are packages you can install from the Drupal website. 
+They often provide a lot of functionality in the backend and are quite useful. 
+Some make existing tasks easier, while others provide entirely new functionality. 
+However, there is a right and wrong way to install them. 
+Let's see what they are.  
+
+## The Wrong Way  
+
+When I say "Wrong Way", I don't mean that it's a bad convention. 
+I simply mean that it's not right for the way most projects are set up here. 
+Let's see what I mean by that.  
+
+### Procedure
+
+#### Step 1
+
+Go to the page of the module.  
+
+#### Step 2  
+
+Go to the bottom, where it shows you links for various Drupal versions. 
+
+#### Step 3  
+
+Copy the link to the file that contains the module.  
+
+#### Step 4 
+
+Paste the link in the Drupal Backend. (admin/modules/install)
+
+### Why is it wrong?  
+
+The answer is quite simple. 
+The way most projects are setup, they ignore certain folders. 
+These folders are ignored for a variety of reasons. 
+One of them is for formatting.  
+
+Since we want our code to conform to a certain style, we monitor our files. 
+These files are checked to see if they follow a certain style of writing.  
+
+However, code written by third-parties shouldn't really be touched, for integrity's sake. 
+When we install modules this way, Drupal installs it where it usually does,
+but that directory is not ignored when the project is setup. 
+This causes the third-party files to be checked as well,
+which can throw a ton of warnings/errors, slowing your progress down by a lot.  
+
+Therefore, we follow the right way.  
+
+## The Right Way  
+
+The Right Way to install Drupal Modules is shown below. After that, I'll tell you why it's right,
+but you can probably already guess.  
+
+### Procedure  
+
+#### Step 1
+
+Go to the page of the module.  
+
+#### Step 2  
+
+Go to the bottom, where it shows you links for various Drupal versions. 
+
+#### Step 3  
+
+Click on the title of the block that lists your Drupal Version.  
+
+#### Step 4  
+
+You should be taken to a new page, where a composer command is shown for you.  
+Copy that command.  
+
+#### Step 5  
+
+Run that command in your terminal, when in your project.  
+
+#### Step 6  
+
+Wait for it to install. When it's done, run the following: 
+
+```
+ddev drush en module_name
+```  
+
+where module_name is the name of the module you're installing.  
+It should be the same name used when running the composer command to install it.  
+
+### Why is it Right?  
+
+In this case, composer installs it in the right directory,
+the directory that is ignored.  
+Another advantage is that updating modules gets easier,
+since you can update all of them using composer.  
+
+If we had installed it the Wrong Way, we would have to update them in the Drupal Backend,
+which could take a while.
+
+Hope this post has saved you some time in debugging those pesky error messages you get
+from module files.
+
+
+Happy Coding ;)
