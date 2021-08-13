@@ -1,0 +1,64 @@
+---
+title: Installing jQuery & Slick
+description: A quick guide on how to setup Slick and jQuery to create carousels/sliders.
+author: Sidharth Subramanian
+date: '2021-08-12'
+category: Slick
+---
+
+## What is Slick?   
+
+Slick is a JS framework that's used to create Carousels/Sliders. 
+While it is really powerful and easy-to-use, the setup in a Drupal/PL environment has some nuances that are easily missed.
+This guide aims to make this setup process a little easier, so that you can be up and running with Slick in no time.
+
+## Setup  
+
+Some of you may have tried loading the CSS & JS files in the libraries.yml file,
+only to find out that it didn't work as you thought it would.  
+I've been there, and that's when I found that the method below works as expected for both Drupal and PL.
+
+### Step 1
+
+Let's say you have a component that uses a slider.  
+Place these lines at the top of that component's twig file, but after the ```{{ attach_library() }}``` line if you have any.  
+
+```html
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@latest/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@latest/slick/slick-theme.css" />
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@latest/slick/slick.min.js"></script>
+```
+
+Note the order here. It's Slick CSS first, then jQuery, then Slick JS files.  
+This is important, since Slick uses jQuery and needs it to be loaded first.  
+
+The jQuery versions have been taken from the Slick website.  
+You may use later versions, but there could be compatibility issues. Feel free to try :) 
+
+### Step 2
+
+Now we'll need to add Slick Types, so that VS Code can understand what Slick is.  
+If you've been getting an annoying red squiggly line under 'slick' in your ts file, this will fix it.  
+
+
+Run the following line in your terminal:  
+```bash
+npm install --save @types/slick-carousel
+```
+
+If it worked, you should be seeing something like this in your package.json file:  
+```json
+"dependencies": {
+    "@types/slick-carousel": "^1.6.37"
+}
+```
+
+## Done!  
+
+With that we're done! Your Slick setup should be ready to go. 
+
+Visit [Slick](https://kenwheeler.github.io/slick/) to know more about how to use it.
+
+Happy Sliding ;)  
