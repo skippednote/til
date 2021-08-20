@@ -1,0 +1,26 @@
+---
+title: How to add a dynamic author box to a node (content type) in Drupal 8
+description: Add a dynamic author box to any node type in Drupal 8 using an advanced Drupal view.
+author: Mudasir Ali
+date: '2021-07-16'
+category: Drupal
+---
+
+1. Create a new Block View to view Users (not Content)
+2. Filter Criteria : Remove all and Set Access: unrestricted in Block Settings
+3. There is a default sort Criteria item. Remove it since it doesn't matter
+4. Add a Relationship: Choose "User: Content authored"
+5. Add a Contextual Filter: Chose "Content: ID"
+6. In the configuration options for the newly added Content: ID, choose these options:  
+   ** WHEN THE FILTER VALUE IS NOT AVAILABLE: **
+   Provide default value  
+   In the Select box choose Content ID From URL  
+   ** WHEN THE FILTER VALUE IS AVAILABLE OR A DEFAULT IS PROVIDED: **
+   Specify validation criteria  
+   Validator select box: Content  
+   Content Types: choose the content types you want the view to work with.  
+   Filter Value Format: Node ID  
+   Action to take if the filter value does not validate: Hide View.
+7. Click apply
+8. Add desired fields from User: & save the View
+9. Go to Structure -> Block layout and configure the block to show on the types of content (node type) you want it to show on.
